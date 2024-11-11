@@ -2,16 +2,13 @@
 #include <string>
 using namespace std;
 
-// Максимальна кількість товарів на складі
 const int MAX_ITEMS = 100;
 
-// Масиви для зберігання даних про товари
-string itemNames[MAX_ITEMS];  // Назви товарів
-int itemQuantities[MAX_ITEMS];  // Кількість товарів
-double itemPrices[MAX_ITEMS];  // Ціна товару
-int itemCount = 0;  // Лічильник кількості товарів на складі
+string itemNames[MAX_ITEMS];
+int itemQuantities[MAX_ITEMS];
+double itemPrices[MAX_ITEMS];
+int itemCount = 0;
 
-// Функція для додавання товару
 void addItem(const string& name, int quantity, double price) {
     if (itemCount < MAX_ITEMS) {
         itemNames[itemCount] = name;
@@ -25,7 +22,6 @@ void addItem(const string& name, int quantity, double price) {
     }
 }
 
-// Функція для видалення товару за назвою
 void removeItem(const string& name) {
     bool found = false;
     for (int i = 0; i < itemCount; ++i) {
@@ -46,7 +42,6 @@ void removeItem(const string& name) {
     }
 }
 
-// Функція для оновлення кількості товару
 void updateQuantity(const string& name, int newQuantity) {
     bool found = false;
     for (int i = 0; i < itemCount; ++i) {
@@ -62,7 +57,6 @@ void updateQuantity(const string& name, int newQuantity) {
     }
 }
 
-// Функція для показу всіх товарів
 void displayItems() {
     if (itemCount == 0) {
         cout << "На складі немає товарів.\n";
@@ -77,7 +71,6 @@ void displayItems() {
     }
 }
 
-// Функція для розрахунку загальної вартості товарів на складі
 void calculateTotalValue() {
     double totalValue = 0;
     for (int i = 0; i < itemCount; ++i) {
