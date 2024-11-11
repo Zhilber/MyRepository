@@ -3,13 +3,13 @@ using namespace std;
 
 int main() {
     int a, b;
-    cout << "Введіть перше ціле число: ";
+    cout << "Enter the first integer: ";
     cin >> a;
-    cout << "Введіть друге ціле число: ";
+    cout << "Enter the second integer: ";
     cin >> b;
 
-    cout << "Адреса змінної a: " << &a << endl;
-    cout << "Адреса змінної b: " << &b << endl;
+    cout << "Address of variable a: " << &a << endl;
+    cout << "Address of variable b: " << &b << endl;
 
     if (a > b) {
         swap(a, b);

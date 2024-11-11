@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int N, sumEven = 0, sumOdd = 0, sumTotal = 0;
 
-    cout << "Введіть число N: ";
+    cout << "Enter the number N: ";
     cin >> N;
 
     for (int i = 1; i <= N; ++i) {
@@ -18,12 +18,12 @@ int main() {
         }
     }
 
-    cout << "\nСума парних чисел: " << sumEven << endl;
-    cout << "Сума непарних чисел: " << sumOdd << endl;
-    cout << "Загальна сума чисел: " << sumTotal << endl;
+    cout << "\nSum of even numbers: " << sumEven << endl;
+    cout << "Sum of odd numbers: " << sumOdd << endl;
+    cout << "Total sum of numbers: " << sumTotal << endl;
 
     double result = (sumEven + sumOdd + sumTotal) / 2.0;
-    cout << "Результат (сума всіх сум, поділена на 2): " << result << endl;
+    cout << "Result (sum of all sums divided by 2): " << result << endl;
 
     return 0;
 }

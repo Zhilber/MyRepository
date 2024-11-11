@@ -5,9 +5,9 @@ int main() {
     int year1, year2;
     int countYears = 0, countEveryTenth = 0;
 
-    cout << "Введіть перший рік: ";
+    cout << "Enter the first year: ";
     cin >> year1;
-    cout << "Введіть другий рік: ";
+    cout << "Enter the second year: ";
     cin >> year2;
 
     if (year1 > year2) {
@@ -15,7 +15,7 @@ int main() {
     }
 
     if (year2 - year1 > 100) {
-        cout << "Кількість років більше 100, вихід з програми." << endl;
+        cout << "The number of years is greater than 100, exiting the program." << endl;
         return 0;
     }
 
@@ -27,8 +27,8 @@ int main() {
         cout << year << " ";
     }
 
-    cout << "\nКількість років: " << countYears << endl;
-    cout << "Кількість кожного десятого року: " << countEveryTenth << endl;
+    cout << "\nNumber of years: " << countYears << endl;
+    cout << "Number of every tenth year: " << countEveryTenth << endl;
 
     return 0;
 }

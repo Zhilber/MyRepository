@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int height;
-    cout << "¬вед≥ть висоту трикутника: ";
+    cout << "Enter the height of the triangle: ";
     cin >> height;
 
     for (int i = 1; i <= height; ++i) {

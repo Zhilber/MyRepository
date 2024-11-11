@@ -15,10 +15,10 @@ void addItem(const string& name, int quantity, double price) {
         itemQuantities[itemCount] = quantity;
         itemPrices[itemCount] = price;
         itemCount++;
-        cout << "Товар '" << name << "' успішно додано на склад.\n";
+        cout << "Item '" << name << "' successfully added to the stock.\n";
     }
     else {
-        cout << "Склад заповнений, не можна додати новий товар.\n";
+        cout << "Stock is full, cannot add a new item.\n";
     }
 }
 
@@ -33,12 +33,12 @@ void removeItem(const string& name) {
             }
             itemCount--;
             found = true;
-            cout << "Товар '" << name << "' успішно видалено зі складу.\n";
+            cout << "Item '" << name << "' successfully removed from the stock.\n";
             break;
         }
     }
     if (!found) {
-        cout << "Товар з назвою '" << name << "' не знайдено.\n";
+        cout << "Item with the name '" << name << "' not found.\n";
     }
 }
 
@@ -48,26 +48,26 @@ void updateQuantity(const string& name, int newQuantity) {
         if (itemNames[i] == name) {
             itemQuantities[i] = newQuantity;
             found = true;
-            cout << "Кількість товару '" << name << "' оновлено до " << newQuantity << ".\n";
+            cout << "The quantity of item '" << name << "' updated to " << newQuantity << ".\n";
             break;
         }
     }
     if (!found) {
-        cout << "Товар з назвою '" << name << "' не знайдено.\n";
+        cout << "Item with the name '" << name << "' not found.\n";
     }
 }
 
 void displayItems() {
     if (itemCount == 0) {
-        cout << "На складі немає товарів.\n";
+        cout << "No items in stock.\n";
         return;
     }
-    cout << "\nСписок товарів на складі:\n";
+    cout << "\nList of items in stock:\n";
     for (int i = 0; i < itemCount; ++i) {
-        cout << "Назва: " << itemNames[i]
-            << ", Кількість: " << itemQuantities[i]
-            << ", Ціна: " << itemPrices[i]
-            << ", Вартість: " << itemQuantities[i] * itemPrices[i] << endl;
+        cout << "Name: " << itemNames[i]
+            << ", Quantity: " << itemQuantities[i]
+            << ", Price: " << itemPrices[i]
+            << ", Value: " << itemQuantities[i] * itemPrices[i] << endl;
     }
 }
 
@@ -76,7 +76,7 @@ void calculateTotalValue() {
     for (int i = 0; i < itemCount; ++i) {
         totalValue += itemQuantities[i] * itemPrices[i];
     }
-    cout << "Загальна вартість товарів на складі: " << totalValue << endl;
+    cout << "Total value of items in stock: " << totalValue << endl;
 }
 
 int main() {
@@ -86,38 +86,38 @@ int main() {
     double price;
 
     while (true) {
-        cout << "\nМеню:\n";
-        cout << "1. Додати товар\n";
-        cout << "2. Видалити товар\n";
-        cout << "3. Оновити кількість товару\n";
-        cout << "4. Показати всі товари\n";
-        cout << "5. Розрахувати загальну вартість товарів\n";
-        cout << "6. Вийти\n";
-        cout << "Виберіть дію: ";
+        cout << "\nMenu:\n";
+        cout << "1. Add item\n";
+        cout << "2. Remove item\n";
+        cout << "3. Update item quantity\n";
+        cout << "4. Show all items\n";
+        cout << "5. Calculate total value of items\n";
+        cout << "6. Exit\n";
+        cout << "Choose an action: ";
         cin >> choice;
 
         switch (choice) {
         case 1:
-            cout << "Введіть назву товару: ";
+            cout << "Enter item name: ";
             cin.ignore();
             getline(cin, name);
-            cout << "Введіть кількість товару: ";
+            cout << "Enter item quantity: ";
             cin >> quantity;
-            cout << "Введіть ціну товару: ";
+            cout << "Enter item price: ";
             cin >> price;
             addItem(name, quantity, price);
             break;
         case 2:
-            cout << "Введіть назву товару для видалення: ";
+            cout << "Enter item name to remove: ";
             cin.ignore();
             getline(cin, name);
             removeItem(name);
             break;
         case 3:
-            cout << "Введіть назву товару для оновлення кількості: ";
+            cout << "Enter item name to update quantity: ";
             cin.ignore();
             getline(cin, name);
-            cout << "Введіть нову кількість товару: ";
+            cout << "Enter new item quantity: ";
             cin >> quantity;
             updateQuantity(name, quantity);
             break;
@@ -128,10 +128,10 @@ int main() {
             calculateTotalValue();
             break;
         case 6:
-            cout << "Завершення програми...\n";
+            cout << "Exiting program...\n";
             return 0;
         default:
-            cout << "Невірний вибір! Спробуйте ще раз.\n";
+            cout << "Invalid choice! Try again.\n";
         }
     }
 

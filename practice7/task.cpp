@@ -3,7 +3,7 @@
 using namespace std;
 
 struct Student {
-    string name; 
+    string name;
     double* grades;
     int gradeCount;
 };
@@ -50,13 +50,13 @@ void removeStudent(Student*& students, int& studentCount, const string& name) {
             delete[] students;
             students = newStudents;
 
-            cout << "Студента " << name << " видалено.\n";
+            cout << "Student " << name << " removed.\n";
             break;
         }
     }
 
     if (!found) {
-        cout << "Студента з таким ім'ям не знайдено.\n";
+        cout << "Student with this name not found.\n";
     }
 }
 
@@ -70,16 +70,16 @@ double calculateAverageGrade(const Student& student) {
 
 void displayStudents(const Student* students, int studentCount) {
     if (studentCount == 0) {
-        cout << "Список студентів порожній.\n";
+        cout << "Student list is empty.\n";
         return;
     }
 
     for (int i = 0; i < studentCount; ++i) {
-        cout << "Студент: " << students[i].name << "\nОцінки: ";
+        cout << "Student: " << students[i].name << "\nGrades: ";
         for (int j = 0; j < students[i].gradeCount; ++j) {
             cout << students[i].grades[j] << " ";
         }
-        cout << "\nСередній бал: " << calculateAverageGrade(students[i]) << "\n\n";
+        cout << "\nAverage grade: " << calculateAverageGrade(students[i]) << "\n\n";
     }
 }
 
@@ -89,26 +89,26 @@ int main() {
 
     while (true) {
         int choice;
-        cout << "\nМеню:\n";
-        cout << "1. Додати студента\n";
-        cout << "2. Видалити студента\n";
-        cout << "3. Показати всіх студентів\n";
-        cout << "4. Вийти\n";
-        cout << "Виберіть дію: ";
+        cout << "\nMenu:\n";
+        cout << "1. Add student\n";
+        cout << "2. Remove student\n";
+        cout << "3. Show all students\n";
+        cout << "4. Exit\n";
+        cout << "Choose an action: ";
         cin >> choice;
 
         switch (choice) {
         case 1: {
             string name;
             int gradeCount;
-            cout << "Введіть ім'я студента: ";
+            cout << "Enter student's name: ";
             cin.ignore();
             getline(cin, name);
-            cout << "Введіть кількість оцінок: ";
+            cout << "Enter the number of grades: ";
             cin >> gradeCount;
 
             double* grades = new double[gradeCount];
-            cout << "Введіть оцінки:\n";
+            cout << "Enter grades:\n";
             for (int i = 0; i < gradeCount; ++i) {
                 cin >> grades[i];
             }
@@ -121,7 +121,7 @@ int main() {
         }
         case 2: {
             string name;
-            cout << "Введіть ім'я студента для видалення: ";
+            cout << "Enter the student's name to remove: ";
             cin.ignore();
             getline(cin, name);
             removeStudent(students, studentCount, name);
@@ -135,10 +135,10 @@ int main() {
                 delete[] students[i].grades;
             }
             delete[] students;
-            cout << "Завершення програми.\n";
+            cout << "Program terminated.\n";
             return 0;
         default:
-            cout << "Невірний вибір! Спробуйте ще раз.\n";
+            cout << "Invalid choice! Try again.\n";
         }
     }
 
